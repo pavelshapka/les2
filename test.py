@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 import numpy as np
+from textwrap import wrap
 
 levels = 256
 maxVoltage = 3.3
@@ -18,7 +19,8 @@ t2 = timelist[-1]
 
 fig, ax = plt.subplots(figsize=(10, 10), dpi=75)
 plt.plot(timelist, voltagelist, color='b', marker='o', linestyle='-',  linewidth=0.5, markersize=1.5)
-ax.set(title='Процесс зарядки и разрядки конденсатора в RC-цепочке')
+title = 'Процесс зарядки и разрядки конденсатора в RC-цепочке.'
+ax.set_title("\n".join(wrap(title, 100)))
 plt.xlabel('Время, с')
 plt.ylabel('Напряжение, В')
 plt.legend('V(t)', loc='upper right')
